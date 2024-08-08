@@ -2,8 +2,6 @@
 
 **Authors:** YongHwan Lee & Tony Storey
 
----
-
 ## Overview
 
 This project focuses on removing Poisson noise from medical images using the Expectation Maximization (EM) algorithm. The EM algorithm is applied for poisson noise removal.
