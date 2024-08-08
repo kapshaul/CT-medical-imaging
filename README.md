@@ -2,6 +2,8 @@
 
 **Authors:** YongHwan Lee & Tony Storey
 
+---
+
 ## Overview
 
 This project focuses on removing Poisson noise from medical images using the Expectation Maximization (EM) algorithm. The EM algorithm is applied for poisson noise removal.
@@ -59,3 +61,13 @@ Each pixel models the absorption coefficient.
    
              -------|------|------- 
 ```
+
+## Implementation
+
+To implement the code, follow these steps:
+1. Clone the repository, which includes the `Med5.m` file.
+2. Run the `Med5.m` file to complete the EM algorithm and estimate the body model matrix coefficients.
+3. The implementation will also plot Mean Squared Error (MSE) graphs, comparing the Cramer-Rao Lower Bound (CRLB) under the fixed body model matrix.
+
+By following these steps, you can effectively execute the algorithm and visualize the results.
+
