@@ -1,36 +1,34 @@
 # Medical Imaging Shot Noise Removal
 
-### Poisson Noise Removal via Expectation Maximization
-
 **Authors:** YongHwan Lee & Tony Storey
 
 ---
 
-### Overview
+## Overview
 
-This project focuses on removing Poisson noise from medical images using the Expectation Maximization (EM) algorithm.
+This project focuses on removing Poisson noise from medical images using the Expectation Maximization (EM) algorithm. The EM algorithm is applied for poisson noise removal.
 
-### Given
+Find more details from the report: [PDF](https://github.com/neurokimchi/t-medical-imaging/blob/master/Medical_Imaging.pdf)
 
-The following equations and concepts are used in this project:
-
-- Probability Distribution:
-  
-$$
-P(\Lambda) = \frac{\exp(A_{ij}\theta_i) \cdot (A_{ij}\theta_i)^{Y_{ij}}}{Y_{ij}!} \quad \quad where A \in \mathbb{R}^{i \times j}
-$$
-
-- Poisson Noise:
+### 1. The observation for each particle ray after poisson noise:
 
 $$
-y_k = \text{Poisson}((A \theta)_k) \quad \quad where k = 1,2,3,\ldots,n
+y_n = \text{Poisson}((A \theta)_n)
 $$
 
-The EM algorithm is applied for noise removal.
+### 2. The observation for the poisson probability distribution:
 
-### Voxel Model
 
-#### 3x3 Cross Section of Voxel Model
+$$
+Poisson(Y_1, Y_2, Y_3, \ldots, Y_m | \theta_1, \theta_2, \theta_3, \ldots, \theta_n) = \frac{(A\theta)^Y e^{-(A\theta)}}{Y!}
+$$
+
+where:
+- $Y$ represents the observation matrix.
+- $\theta$ is the true coefficient that we aim to estimate.
+- $A \in \mathbb{R}^{i \times j}$ is the body model matrix.
+
+### 3. 3x3 cross section of voxel model example
 Each pixel models the absorption coefficient.
 
 ```
