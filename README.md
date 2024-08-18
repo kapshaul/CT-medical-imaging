@@ -6,7 +6,7 @@
 
 This project focuses on removing Poisson noise from medical images using the Expectation Maximization (EM) algorithm. The EM algorithm is applied for poisson noise removal.
 
-Find more details from the report: [PDF](https://github.com/kapshaul/t-medical-imaging/blob/master/Medical_Imaging.pdf)
+Find more details from the report: [PDF](https://github.com/kapshaul/ct-medical-imaging/blob/master/Medical_Imaging.pdf)
 
 ### 1. The observation for each particle ray after poisson noise:
 
