@@ -4,7 +4,9 @@
 
 ## Overview
 
-This project simulates the Expectation Maximization (EM) algorithm for removing Poisson noise from medical images.
+This project simulates the Expectation Maximization (EM) algorithm for removing Poisson noise from medical images. The EM algorithm is particularly useful in this context because it allows for the estimation of the underlying image by iteratively maximizing the likelihood function, which accounts for the statistical nature of Poisson noise. Given the quantum nature of particles and their discrete arrival times, Poisson noise often manifests in medical imaging, especially in modalities like X-ray Computed Tomography (CT). This noise can lead to significant artifacts in the reconstructed images, which might result in diagnostic inaccuracies.
+
+To mitigate these issues, the EM algorithm is applied as it effectively separates the noise from the actual signal in the image data. By modeling the image acquisition process and noise characteristics, the algorithm iteratively refines the image estimate, ultimately converging on a solution that minimizes the impact of noise.
 
 Find more details from the report: [PDF](https://github.com/kapshaul/ct-medical-imaging/blob/master/Medical_Imaging.pdf)
 
