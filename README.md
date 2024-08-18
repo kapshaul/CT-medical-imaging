@@ -1,6 +1,6 @@
 # Medical Imaging Shot Noise Removal
 
-**Authors:** Yong-Hwan Lee & Tony Storey
+**Authors:** Yong-Hwan Lee and Tony Storey
 
 ## Overview
 
