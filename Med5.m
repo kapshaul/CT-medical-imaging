@@ -166,11 +166,11 @@ for gain_val = 1:max_gain_stages
     p4 = plot (X,'g -x');%final value                     
     end % end of Monte_Carlo a-iter
    
-    % compute the minimum normalized values of MSE and CRLB and use
+    % compute the mean normalized values of MSE and CRLB and use
     % to format for log plot normalize by gain factor  
     for par_num = 1:9
-        CRLB_monte_min(par_num, (max_gain_stages+1)-gain_val) = log(min(CRLB_monte(par_num,:)));  %   
-        MSE_monte_min(par_num, gain_val) = log(min(MSE_monte(par_num,:))./(gain(gain_val)*gain(gain_val)));  %
+        CRLB_monte_min(par_num, gain_val) = log(mean(CRLB_monte(par_num,:)));  %   
+        MSE_monte_min(par_num, gain_val) = log(mean(MSE_monte(par_num,:)));  %    
     end                 
  
 end % end gain value sweep
