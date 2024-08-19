@@ -209,7 +209,7 @@ for i = 1:N
     Sample_SE(:,i) = (X_Val(:,i)-x).*(X_Val(:,i)-x);
 end
 Sample_MSE_mean = mean(Sample_SE);
-loglog(Sample_MSE_mean, '-r')
+plot(Sample_MSE_mean, '-r')
 title('Mean MSE for All Values')
 xlabel('EM Iteration') 
 ylabel('MSE') 
