@@ -169,8 +169,8 @@ for gain_val = 1:max_gain_stages
     % compute the mean normalized values of MSE and CRLB and use
     % to format for log plot normalize by gain factor  
     for par_num = 1:9
-        CRLB_monte_min(par_num, gain_val) = log(mean(CRLB_monte(par_num,:)));  %   
-        MSE_monte_min(par_num, gain_val) = log(mean(MSE_monte(par_num,:)));  %    
+        CRLB_monte_mean(par_num, gain_val) = log(mean(CRLB_monte(par_num,:)));  %   
+        MSE_monte_mean(par_num, gain_val) = log(mean(MSE_monte(par_num,:)));  %    
     end                 
  
 end % end gain value sweep
@@ -187,8 +187,8 @@ figure
 for plot_num = 1:9
     subplot(3,3,plot_num)
     hold on
-    plot(CRLB_monte_min(plot_num,:), 'b')
-    plot(MSE_monte_min(plot_num,:), 'r')    
+    plot(CRLB_monte_mean(plot_num,:), 'b')
+    plot(MSE_monte_mean(plot_num,:), 'r')    
     hold off
     xlabel(['gain factor ', num2str(gain(1)), '\leq gain \leq', num2str(gain(max_gain_stages))])
     ylabel('MSE & CRLB')
@@ -203,4 +203,13 @@ xlabel('EM Iteration')
 ylabel('Log Likelihood') 
 
 
-
+figure
+Sample_SE = zeros(9,30);
+for i = 1:N
+    Sample_SE(:,i) = (X_Val(:,i)-x).*(X_Val(:,i)-x);
+end
+Sample_MSE_mean = mean(Sample_SE);
+loglog(Sample_MSE_mean, '-r')
+title('Mean MSE for All Values')
+xlabel('EM Iteration') 
+ylabel('MSE') 
