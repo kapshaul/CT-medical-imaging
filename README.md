@@ -23,6 +23,8 @@ To mitigate these issues, the EM algorithm is applied as it effectively separate
 
 Find more details from the report: [PDF](https://github.com/kapshaul/ct-medical-imaging/blob/master/Medical_Imaging.pdf)
 
+## Problem Formulation
+
 ### 1. The observation for each particle ray after poisson noise:
 
 $$
