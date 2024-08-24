@@ -25,42 +25,25 @@ Find more details from the report: [PDF](https://github.com/kapshaul/ct-medical-
 
 ## Problem Formulation
 
+### 1. Observation
+
 The distribution of $N_{ij}$ is given by,
 
 $$
 N_{ij} \sim Pois(a_{ij} \lambda_j)
 $$
 
-where $Pois$ denotes the Poisson distribution.
+Here, $Pois$ denotes the Poisson distribution with parameter $\lambda$. Consider a model matrix $A$, where $A = (a_{ij})$ $i = 1, \dots, n$ $j = 1, \dots, m$.
+
 Then, the observations $Y_{i=1,...n}$ can be written as below,
 
 $$
 Y_i = \sum_{j=1}^m N_{ij} \sim \sum_{j=1}^m Pois((a_{ij} \lambda_j)
 $$
 
-## EM Algorithm
+### 2. 3x3 cross section of voxel model
 
-### 1. Likelihood function
-
-For the observations, the likelihood function can be written as,
-
-$$
-L(N_{ij})_ {ij}(\lambda) = \prod_i^n\prod_j^m e^{a_{ij} \lambda_j} \frac{(\lambda_j a_{ij})^{N_{ij}}}{N_{ij}!}
-$$
-
-Then, log-likelihood function can be below,
-
-$$
-l(N_{ij})_ {ij}(\lambda) = \sum_i^n \sum_j^m (-\lambda_j a_{ij} + N_{ij}\log{(\lambda_j a_{ij})} -\log{(N_{ij}!)})
-$$
-
-where:
-- $Y$ represents the observation matrix.
-- $\lambda$ is a distribution parameter.
-- $A \in \mathbb{R}^{i \times j}$ is the a model matrix.
-
-### 3. 3x3 cross section of voxel model example
-Each pixel models the absorption coefficient.
+Each pixel represents the absorption coefficient. Below are examples of voxel models,
 
 ```
                                 |        *--------------------*       |  
@@ -93,6 +76,22 @@ Each pixel models the absorption coefficient.
                                
                                          -------|------|------- 
 ```
+
+## EM Algorithm
+
+### 1. Likelihood function
+
+For the observations, the likelihood function can be written as,
+
+$$
+L(N_{ij})_ {ij}(\lambda) = \prod_i^n\prod_j^m e^{a_{ij} \lambda_j} \frac{(\lambda_j a_{ij})^{N_{ij}}}{N_{ij}!}
+$$
+
+Then, log-likelihood function can be below,
+
+$$
+l(N_{ij})_ {ij}(\lambda) = \sum_i^n \sum_j^m (-\lambda_j a_{ij} + N_{ij}\log{(\lambda_j a_{ij})} -\log{(N_{ij}!)})
+$$
 
 ## Implementation
 
