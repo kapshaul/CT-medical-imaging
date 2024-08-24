@@ -147,5 +147,7 @@ To implement the code, follow these steps:
    
 The implementation will also plot Mean Squared Error (MSE) graphs, comparing the Cramer-Rao Lower Bound (CRLB) under the fixed body model matrix.
 
+---
+
 ## Reference
 [1] C. F. van Oosten, "The EM-algorithm for Poisson data," Bachelor's thesis, Mathematical Institute, Leiden University, Leiden, The Netherlands, Aug. 2014.
