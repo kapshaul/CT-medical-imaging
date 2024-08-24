@@ -28,14 +28,14 @@ Find more details from the report: [PDF](https://github.com/kapshaul/ct-medical-
 ### 1. The observation for each particle ray after poisson noise:
 
 $$
-y_n = \text{Poisson}((A \theta)_n)
+Y_n \sim Pois((A \theta)_n)
 $$
 
 ### 2. The observation for the poisson probability distribution:
 
 
 $$
-Poisson(Y_1, Y_2, Y_3, \ldots, Y_m | \theta_1, \theta_2, \theta_3, \ldots, \theta_n) = \frac{(A\theta)^Y e^{-(A\theta)}}{Y!}
+Pr(Y_1, Y_2, Y_3, \ldots, Y_m | \theta_1, \theta_2, \theta_3, \ldots, \theta_n) = \frac{(A\theta)^Y e^{-(A\theta)}}{Y!}
 $$
 
 where:
