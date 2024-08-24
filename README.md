@@ -139,6 +139,8 @@ $$
 \lambda_j = \frac{\lambda_{j}^{old}}{\sum_{i=1}^{n} a_{ij}} \sum_{i=1}^n \frac{Y_i a_{ij}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}}
 $$
 
+### 3. EM Algorithm MATLAB code
+
 ```
 % Starting EM Algorithm
 for N = 1:iter                                 
