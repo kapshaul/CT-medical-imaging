@@ -115,19 +115,19 @@ Then, $X_1|(X_1 + X_2) \sim B(X_1 + X_2, \frac{\lambda_1}{\lambda_1+\lambda_2})$
 
 By taking $X_1 = N_{ij}$ and $X_2 = Y_i − N_{ij}$, we find $N_{ij} |Y_i \sim B(Y_i, \frac{a_{ij}\lambda_j}{\sum_{k=1}^m a_{ik}\lambda_k})$
 
-Because the expectation of a Binomial distribution with parameters $n$, $p$ is $np$ we have
+Because the expectation of a Binomial distribution with parameters $n$, $p$ is $np$ we have,
 
 $$
 E[N_{ij}|Y_i] = \frac{Y_i a_{ij}\lambda_j}{\sum_{k=1}^m a_{ik}\lambda_k}
 $$
 
-Therefore
+Therefore,
 
 $$
 \frac{d}{d \lambda_{j}}E[l_{(N_{ij})_ {ij}} | (Y_{i})_ {i}] = \sum_{i=1}^n -a_{ij} + \frac{1}{\lambda_j} \frac{Y_i a_{ij}\lambda_{j}^{old}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}} \quad \forall j=1,...,m
 $$
 
-Setting the derivative to 0 to find a possible maximum gives
+Setting the derivative to 0 to find a possible maximum gives,
 
 $$
 0 = \sum_{i=1}^n -a_{ij} + \frac{1}{\lambda_j} \frac{Y_i a_{ij}\lambda_{j}^{old}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}}
@@ -136,8 +136,25 @@ $$
 Solving for all $\lambda_j$ gives,
 
 $$
-\lambda_j = \frac{\lambda_{j}^{old}}{\sum_{i=1}^{n} a_{ij}} \frac{Y_i a_{ij}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}}
+\lambda_j = \frac{\lambda_{j}^{old}}{\sum_{i=1}^{n} a_{ij}} \sum_{i=1}^n \frac{Y_i a_{ij}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}}
 $$
+
+```
+% Starting EM Algorithm
+for N = 1:iter                                 
+    for j = 1:n
+        for i = 1:m
+            den1 = A*X;
+            % Compute the probability
+            prob(i) = y(i)*A(i,j)/den1(i);
+        end
+        % E step to copute expectation
+        expectation(j) = sum(prob);
+        den2(j) = sum(A(:,j));
+        % M step to maximize likelihood
+        X(j) = X(j)/den2(j)*expectation(j);
+    end
+```
 
 ## Implementation
 
