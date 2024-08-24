@@ -124,15 +124,17 @@ for gain_val = 1:max_gain_stages
         
         % Starting EM Algorithm
         for N = 1:iter                                 
-            % M step of EM Algorithm
             for j = 1:n
                 for i = 1:m
-                    Den1 = A*X;
-                    T1(i) = y(i)*A(i,j)/Den1(i);
+                    den1 = A*X;
+                    % Compute the probability
+                    prob(i) = y(i)*A(i,j)/den1(i);
                 end
-                Right(j) = sum(T1);
-                Den2(j,1) = sum(A(:,j));
-                X(j,1) = X(j,1)/Den2(j)*Right(j);
+                % E step to copute expectation
+                expectation(j) = sum(prob);
+                den2(j) = sum(A(:,j));
+                % M step to maximize likelihood
+                X(j) = X(j)/den2(j)*expectation(j);
             end
 
             %Save updated parameters for plotts 
