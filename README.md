@@ -38,7 +38,7 @@ Here, $Pois$ denotes the Poisson distribution with parameter $\lambda$. Consider
 Then, the observations $Y_{i=1,...n}$ can be written as below,
 
 $$
-Y_i = \sum_{j=1}^m N_{ij} \sim \sum_{j=1}^m Pois((a_{ij} \lambda_j)
+Y_i = \sum_{j=1}^m N_{ij} \sim \sum_{j=1}^m Pois(a_{ij} \lambda_j)
 $$
 
 ### 2. 3x3 cross section of voxel model
@@ -93,6 +93,52 @@ $$
 l(N_{ij})_ {ij}(\lambda) = \sum_i^n \sum_j^m (-\lambda_j a_{ij} + N_{ij}\log{(\lambda_j a_{ij})} -\log{(N_{ij}!)})
 $$
 
+Looking at the derivative of the log-likelihood with resprect to $\lambda_j$ we obtain
+
+$$
+\frac{d}{d \lambda_{j}}E[l_{(N_{ij})_ {ij}} | (Y_{i})_ {i}] = \sum_{i=1}^n -a_{ij} + \frac{1}{\lambda_j} E[(N_{ij})_ {ij} | (Y_{i})_ {i}] \quad \forall j=1,...,m
+$$
+
+### 2. Parameter Update
+
+Lemma 5.1. Let $X_1$, $X_2$ be independent Poisson distributions with
+
+$$
+X_1 \sim Pois(\lambda_1)
+$$
+
+$$
+X_2 \sim Pois(\lambda_2)
+$$
+
+Then, $X_1|(X_1 + X_2) \sim B(X_1 + X_2, \frac{\lambda_1}{\lambda_1+\lambda_2})$.
+
+By taking $X_1 = N_{ij}$ and $X_2 = Y_i − N_{ij}$, we find $N_{ij} |Y_i \sim B(Y_i, \frac{a_{ij}\lambda_j}{\sum_{k=1}^m a_{ik}\lambda_k})$
+
+Because the expectation of a Binomial distribution with parameters $n$, $p$ is $np$ we have
+
+$$
+E[N_{ij}|Y_i] = \frac{Y_i a_{ij}\lambda_j}{\sum_{k=1}^m a_{ik}\lambda_k}
+$$
+
+Therefore
+
+$$
+\frac{d}{d \lambda_{j}}E[l_{(N_{ij})_ {ij}} | (Y_{i})_ {i}] = \sum_{i=1}^n -a_{ij} + \frac{1}{\lambda_j} \frac{Y_i a_{ij}\lambda_{j}^{old}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}} \quad \forall j=1,...,m
+$$
+
+Setting the derivative to 0 to find a possible maximum gives
+
+$$
+0 = \sum_{i=1}^n -a_{ij} + \frac{1}{\lambda_j} \frac{Y_i a_{ij}\lambda_{j}^{old}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}}
+$$
+
+Solving for all $\lambda_j$ gives,
+
+$$
+\lambda_j = \frac{\lambda_{j}^{old}}{\sum_{i=1}^{n} a_{ij}} \frac{Y_i a_{ij}}{\sum_{k=1}^{m} a_{ik}\lambda_{k}^{old}}
+$$
+
 ## Implementation
 
 To implement the code, follow these steps:
@@ -100,3 +146,6 @@ To implement the code, follow these steps:
 2. Run the `Med5.m` file to complete the EM algorithm and estimate the body model matrix coefficients.
    
 The implementation will also plot Mean Squared Error (MSE) graphs, comparing the Cramer-Rao Lower Bound (CRLB) under the fixed body model matrix.
+
+## Reference
+[1] C. F. van Oosten, "The EM-algorithm for Poisson data," Bachelor's thesis, Mathematical Institute, Leiden University, Leiden, The Netherlands, Aug. 2014.
