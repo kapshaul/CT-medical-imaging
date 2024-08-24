@@ -25,23 +25,39 @@ Find more details from the report: [PDF](https://github.com/kapshaul/ct-medical-
 
 ## Problem Formulation
 
-### 1. The observation for each particle ray after poisson noise:
+The distribution of $N_{ij}$ is given by,
 
 $$
-Y_n \sim Pois((A \theta)_n)
+N_{ij} \sim Pois(a_{ij} \lambda_j)
 $$
 
-### 2. The observation for the poisson probability distribution:
-
+where $Pois$ denotes the Poisson distribution.
+Then, the observations $Y_{i=1,...n}$ can be written as below,
 
 $$
-Pr(Y_1, Y_2, Y_3, \ldots, Y_m | \theta_1, \theta_2, \theta_3, \ldots, \theta_n) = \frac{(A\theta)^Y e^{-(A\theta)}}{Y!}
+Y_i = \sum_{j=1}^m N_{ij} \sim \sum_{j=1}^m Pois((a_{ij} \lambda_j)
+$$
+
+## EM Algorithm
+
+### 1. Likelihood function
+
+For the observations, the likelihood function can be written as,
+
+$$
+L(N_{ij})_ {ij}(\lambda) = \prod_i^n\prod_j^m e^{a_{ij} \lambda_j} \frac{(\lambda_j a_{ij})^{N_{ij}}}{N_{ij}!}
+$$
+
+Then, log-likelihood function can be below,
+
+$$
+l(N_{ij})_ {ij}(\lambda) = \sum_i^n \sum_j^m (-\lambda_j a_{ij} + N_{ij}\log{(\lambda_j a_{ij})} -\log{(N_{ij}!)})
 $$
 
 where:
 - $Y$ represents the observation matrix.
-- $\theta$ is the true coefficient that we aim to estimate.
-- $A \in \mathbb{R}^{i \times j}$ is the body model matrix.
+- $\lambda$ is a distribution parameter.
+- $A \in \mathbb{R}^{i \times j}$ is the a model matrix.
 
 ### 3. 3x3 cross section of voxel model example
 Each pixel models the absorption coefficient.
