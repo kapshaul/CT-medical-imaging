@@ -141,7 +141,7 @@ $$
 
 ### 3. EM Algorithm MATLAB code
 
-```
+```matlab
 % Starting EM Algorithm
 for N = 1:iter                                 
     for j = 1:n
