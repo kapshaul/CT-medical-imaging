@@ -1,4 +1,4 @@
-# Medical Imaging Computed Tomography: CT Image Deconvolution in the Presence of Poisson Noise
+# Medical Imaging Computed Tomography
 
 **Authors:** Yong-Hwan Lee and Tony Storey
 
