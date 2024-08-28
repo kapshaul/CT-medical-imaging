@@ -160,9 +160,15 @@ for N = 1:iter
 
 ### 4. Result
 
+The Expectation Maximization (EM) algorithm was implemented in MATLAB to reduce noise and estimate the 9 parameters from a 3x3 pixel matrix. To validate its performance, 200 Monte Carlo simulations were conducted, and the resulting EM estimates were used to recover the underlying data.
+
+As shown in Figure 2, the EM algorithm exhibited a monotonically increasing likelihood as it converged toward a stable solution.
+
+The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.1 to 100, with both the CRLB and MSE calculated for each parameter, as illustrated in Figure 3.
+
 <div align="center">
     
-<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MLE.jpg" width="600">
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MLE.jpg" width="650">
 
 **Figure 2**: Log-likelihood maximization progress over iterations
 
@@ -170,7 +176,7 @@ for N = 1:iter
 
 <div align="center">
     
-<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.png" width="600">
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.png" width="650">
 
 **Figure 3**: MSE comparison with CRLB
 
