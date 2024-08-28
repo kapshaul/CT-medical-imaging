@@ -168,7 +168,7 @@ The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficie
 
 <div align="center">
     
-<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MLE.jpg" width="650">
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MLE.jpg" width="500">
 
 **Figure 2**: Log-likelihood maximization progress over iterations
 
@@ -176,7 +176,7 @@ The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficie
 
 <div align="center">
     
-<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.png" width="650">
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.png" width="500">
 
 **Figure 3**: MSE comparison with CRLB
 
