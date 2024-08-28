@@ -101,7 +101,7 @@ $$
 
 ### 2. Parameter Update
 
-Lemma 5.1. Let $X_1$, $X_2$ be independent Poisson distributions with
+Lemma. Let $X_1$, $X_2$ be independent Poisson distributions with
 
 $$
 X_1 \sim Pois(\lambda_1)
