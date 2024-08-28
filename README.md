@@ -158,6 +158,24 @@ for N = 1:iter
     end
 ```
 
+### 4. Result
+
+<div align="center">
+    
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MLE.jpg" width="600">
+
+**Figure 2**: Log-likelihood maximization progress over iterations
+
+</div>
+
+<div align="center">
+    
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.png" width="600">
+
+**Figure 3**: MSE comparison with CRLB
+
+</div>
+
 ## Implementation
 
 To implement the code, follow these steps:
