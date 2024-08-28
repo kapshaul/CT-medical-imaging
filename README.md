@@ -166,6 +166,8 @@ As shown in Figure 2, the EM algorithm exhibited a monotonically increasing like
 
 The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.1 to 100, with both the CRLB and MSE calculated for each parameter, as illustrated in Figure 3.
 
+<br>
+
 <div align="center">
     
 <img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MLE.jpg" width="500">
@@ -173,6 +175,8 @@ The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficie
 **Figure 2**: Log-likelihood maximization progress over iterations
 
 </div>
+
+<br>
 
 <div align="center">
     
