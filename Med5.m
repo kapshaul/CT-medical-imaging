@@ -194,7 +194,7 @@ for plot_num = 1:9
     hold off
     xlabel(['gain factor ', num2str(gain(1)), '\leq gain \leq', num2str(gain(max_gain_stages))])
     ylabel('MSE & CRLB')
-    legend('CRLB', 'MSE')
+    legend('CRLB', 'MSE', 'Location', 'northwest')
     title('CRLB&MSE_m_o_n_t_e_m_i_n')
 end
 
