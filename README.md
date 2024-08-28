@@ -113,6 +113,8 @@ $$
 
 Then, $X_1|(X_1 + X_2) \sim B(X_1 + X_2, \frac{\lambda_1}{\lambda_1+\lambda_2})$.
 
+<br>
+
 By taking $X_1 = N_{ij}$ and $X_2 = Y_i − N_{ij}$, we find $N_{ij} |Y_i \sim B(Y_i, \frac{a_{ij}\lambda_j}{\sum_{k=1}^m a_{ik}\lambda_k})$
 
 Because the expectation of a Binomial distribution with parameters $n$, $p$ is $np$ we have,
