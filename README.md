@@ -166,7 +166,7 @@ The Expectation Maximization (EM) algorithm was implemented in MATLAB to reduce 
 
 As shown in Figure 2, the EM algorithm exhibited a monotonically increasing likelihood as it converged toward a stable solution.
 
-The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.1 to 100, with both the CRLB and MSE calculated for each parameter, as illustrated in Figure 3.
+The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.01 to 1000, with both the CRLB and MSE calculated for each parameter, as illustrated in Figure 3.
 
 <br>
 
