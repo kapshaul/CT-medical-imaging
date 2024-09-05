@@ -51,8 +51,8 @@ clc
 %% Initialize
 gain = [0.1 0.5 1 1.5 2];                   % Gains 0.1 to 2
 max_gain_stages = length(gain);
-num_iter = 50;                              % Iteration Number
-monte = 10;                                 % Montecarlo Number
+num_iter = 20;                              % Iteration Number
+monte = 200;                                % Montecarlo Number
 n = 9;                                      % A matrix length n
 m = 16;                                     % A matrix length m
 
@@ -84,7 +84,7 @@ disp(A);
 
 %% True data and Poisson noise for absorption coefs
 % Create Observation (Noised)
-base_value = unifrnd(200, 300, [9, 1]);     % Base parameter vector
+base_value = unifrnd(200, 300, [n, 1]);     % Base parameter vector
 x = gain(1)*base_value;                     % True parameter vector
 x_noise = poissrnd(x);                      % Parameter vector with poisson noise
 y = A*poissrnd(x);                          % Observation vector
@@ -107,7 +107,7 @@ for gain_val = 1:max_gain_stages
         y = A*x_noise;
 
         %X = inv(A'*A)*A'*y;
-        X(1:9, 1) = mean(x_noise);
+        X(1:n, 1) = mean(x_noise);
         
         % Starting EM Algorithm N-iter
         for iter = 1:num_iter
