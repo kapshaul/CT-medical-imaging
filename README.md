@@ -198,8 +198,6 @@ To implement the code, follow these steps:
 1. Clone the repository.
 2. Run the `main.m` file to complete the EM algorithm and estimate the body model matrix coefficients.
    
-The implementation will plot log-likelihood and Mean Squared Error (MSE) comparing the Cramer-Rao Lower Bound (CRLB).
-
 ---
 
 ## Reference
