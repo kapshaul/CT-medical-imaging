@@ -170,7 +170,7 @@ The Expectation Maximization (EM) algorithm was implemented in MATLAB to reduce 
 
 As shown in Figure 2, the EM algorithm exhibited a monotonically increasing likelihood as it converged toward a stable solution.
 
-The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.01 to 1000, with both the CRLB and MSE calculated for each parameter, as illustrated in Figure 3.
+The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.1 to 2, with both the CRLB and MSE as illustrated in Figure 3.
 
 <br>
 
@@ -186,7 +186,7 @@ The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficie
 
 <div align="center">
     
-<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.jpg" width="500">
+<img src="https://github.com/kapshaul/ct-medical-imaging/blob/master/images/MSE.png" width="500">
 
 **Figure 3**: MSE comparison with CRLB
 
@@ -195,10 +195,10 @@ The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficie
 ## Implementation
 
 To implement the code, follow these steps:
-1. Clone the repository, which includes the `Med5.m` file.
-2. Run the `Med5.m` file to complete the EM algorithm and estimate the body model matrix coefficients.
+1. Clone the repository.
+2. Run the `main.m` file to complete the EM algorithm and estimate the body model matrix coefficients.
    
-The implementation will also plot Mean Squared Error (MSE) graphs, comparing the Cramer-Rao Lower Bound (CRLB) under the fixed body model matrix.
+The implementation will plot log-likelihood and Mean Squared Error (MSE) comparing the Cramer-Rao Lower Bound (CRLB).
 
 ---
 
