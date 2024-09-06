@@ -151,7 +151,7 @@ ylabel('Log Likelihood')
 % Plot MSE
 figure
 plot(MSE(1, :), '-r')
-title('Mean MSE for All Values')
+title('MSE')
 xlabel('EM Iteration') 
 ylabel('MSE')
 
