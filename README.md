@@ -166,11 +166,11 @@ end
 
 ### 4. Result
 
-The Expectation Maximization (EM) algorithm was implemented in MATLAB to reduce noise and estimate the 9 parameters from a 3x3 pixel matrix. To validate its performance, 200 Monte Carlo simulations were conducted, and the resulting EM estimates were used to recover the underlying data.
+The Expectation Maximization (EM) algorithm was implemented in MATLAB to reduce noise and estimate the 9 parameters from a 3x3 pixel matrix. To validate its performance, 10000 Monte Carlo simulations were conducted, and the resulting EM estimates were used to recover the underlying data.
 
 As shown in Figure 2, the EM algorithm exhibited a monotonically increasing likelihood as it converged toward a stable solution.
 
-The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.1 to 2, with both the CRLB and MSE as illustrated in Figure 3.
+The Cramér-Rao Lower Bound (CRLB) was used as a benchmark to assess the efficiency of the mean squared error (MSE) for each parameter. To further evaluate performance, the signal gain was varied from 0.1 to 10, with both the CRLB and MSE as illustrated in Figure 3.
 
 <br>
 
