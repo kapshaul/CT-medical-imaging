@@ -83,15 +83,14 @@ disp("A = ");
 disp(A);
 
 %% True data and Poisson noise for absorption coefs
-% Create Observation (Noised)
-base_value = unifrnd(200, 300, [n, 1]);     % Base parameter vector
+% Create Noised Observation
+base_value = unifrnd(200, 500, [n, 1]);     % Base parameter vector
 x = gain(1)*base_value;                     % True parameter vector
-x_noise = poissrnd(x);                      % Parameter vector with poisson noise
-y = A*poissrnd(x);                          % Observation vector
+y = sum(poissrnd(A.*x'), 2);                % Observation vector
 
 %% Starting point from Method of Moments 
 % Method of Moments starting point before the iterative estimation
-%X = inv(A'*A)*A'*y;
+X = inv(A'*A)*A'*y;
 
 %% EM Algorithm
 % Gain value sweep
@@ -103,12 +102,9 @@ for gain_val = 1:max_gain_stages
     for k = 1:monte
         % Observation Update With New Noise
         x = gain(gain_val)*base_value;
-        x_noise = poissrnd(x);
-        y = A*x_noise;
+        y = sum(poissrnd(A.*x'), 2);
 
-        %X = inv(A'*A)*A'*y;
-        X(1:n, 1) = mean(x_noise);
-        
+        X = inv(A'*A)*A'*y;        
         % Starting EM Algorithm N-iter
         for iter = 1:num_iter
 
@@ -131,7 +127,7 @@ for gain_val = 1:max_gain_stages
             CRLB(k, iter) = mean(CRLB_par);             % Construct CRLB
 
         end % End of EM Algorithm N-iter
-
+        
     end % End of Monte_Carlo runs
    
     % Compute the mean values of MSE and CRLB with normalization by gain^2
@@ -143,14 +139,14 @@ end % End gain value sweep
 %% Plots for Convergence, MSE, CRLB, and Log-likelihood
 % Plot log-likelihood
 figure
-plot(likelihood(1, :), '-r')
+plot(mean(likelihood, 1), '-r')
 title('Log Likelihood')
 xlabel('EM Iteration')
 ylabel('Log Likelihood') 
 
 % Plot MSE
 figure
-plot(MSE(1, :), '-r')
+plot(mean(MSE, 1), '-r')
 title('MSE')
 xlabel('EM Iteration') 
 ylabel('MSE')
