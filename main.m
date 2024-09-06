@@ -88,10 +88,6 @@ base_value = unifrnd(200, 500, [n, 1]);     % Base parameter vector
 x = gain(1)*base_value;                     % True parameter vector
 y = sum(poissrnd(A.*x'), 2);                % Observation vector
 
-%% Starting point from Method of Moments 
-% Method of Moments starting point before the iterative estimation
-X = inv(A'*A)*A'*y;
-
 %% EM Algorithm
 % Gain value sweep
 for gain_val = 1:max_gain_stages
@@ -104,7 +100,9 @@ for gain_val = 1:max_gain_stages
         x = gain(gain_val)*base_value;
         y = sum(poissrnd(A.*x'), 2);
 
-        X = inv(A'*A)*A'*y;        
+        % Starting point from Method of Moments
+        X = inv(A'*A)*A'*y;
+
         % Starting EM Algorithm N-iter
         for iter = 1:num_iter
 
